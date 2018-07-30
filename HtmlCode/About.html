@@ -89,6 +89,82 @@
 				width:1323px;
 				height:644px;
 			}
+			.LogIn {
+				position:fixed;
+				top:249;
+				left:-5;
+				border: 5px solid #696969;
+				padding: 0 10px;
+				width:75px;
+				height:175px;
+			}
+			.LogInText {
+				background-color: #2b2b2b;
+				color: #FFFFFF;
+				border: solid #A9A9A9
+			}
+			.LogInButton {
+				width:80px;
+				height:25px;
+				display: inline-block;
+				text-align: center;
+				border-width: 1px;
+				border-style: solid;
+				text-transform: uppercase;
+				text-decoration: none;
+				line-height: 1.1;
+				font-weight: normal;
+				font-family: sans-serif;
+				color: #C0C0C0;
+				font-size: 12px;
+				background-color: #2b2b2b;
+				background-image: -webkit-linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
+				background-image: -moz-linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
+				background-image: -o-linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
+				background-image: linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
+				border-color: hsl(0, 0%, 17%);
+				-webkit-box-shadow: inset 0 0 1px 1px #616161, 0 0 1px 3px rgba(0, 0, 0, 0.15);
+				-moz-box-shadow: inset 0 0 1px 1px #616161, 0 0 1px 3px rgba(0, 0, 0, 0.15);
+				box-shadow: inset 0 0 1px 1px #616161, 0 0 1px 3px rgba(0, 0, 0, 0.15);
+				-webkit-text-shadow: 1px 1px 1px #000;
+				-moz-text-shadow: 1px 1px 1px #000;
+				-o-text-shadow: 1px 1px 1px #000;
+				text-shadow: 1px 1px 1px #000;
+				-webkit-border-radius: 0px;
+				-moz-border-radius: 0px;
+				border-radius: 0px;
+			}
+
+			.LogInButton strong {
+				letter-spacing: 1px;
+				font-size: 20px;
+			}
+
+			.LogInButton:hover {
+				color: #FFFFFF;
+				background-color: #333;
+				background-image: -webkit-linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
+				background-image: -moz-linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
+				background-image: -o-linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
+				background-image: linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
+				border-color: hsl(0, 0%, 20%);
+				-webkit-box-shadow: inset 0 0 1px 1px #666, 0 0 1px 3px rgba(0, 0, 0, 0.15);
+				-moz-box-shadow: inset 0 0 1px 1px #666, 0 0 1px 3px rgba(0, 0, 0, 0.15);
+				box-shadow: inset 0 0 1px 1px #666, 0 0 1px 3px rgba(0, 0, 0, 0.15);
+				-webkit-text-shadow: 1px 1px 1px #000;
+				-moz-text-shadow: 1px 1px 1px #000;
+				-o-text-shadow: 1px 1px 1px #000;
+				text-shadow: 1px 1px 1px #000;
+			}
+
+			LogInButton:active {
+				color: #C0C0C0;
+				background-color: #232323;
+				background-image: -webkit-linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
+				background-image: -moz-linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
+				background-image: -o-linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
+				background-image: linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
+			}
 		</style>
 	</head>
 	<body bgcolor="	#000000">
@@ -138,6 +214,16 @@
 			so that heroes in one set may have an aged version in a future set, or may die in one, and events of previous expansions will influence future ones.
 			The game entered closed beta in early 2018, with numerous gaming industry members and professional card game players invited to test it.
 			It will be released for Microsoft Windows, macOS and Linux in late 2018, and for Android and iOS devices in 2019.</p>
+		</div>
+		<div class="LogIn">
+			<p></p>
+			<input class="LogInText" required type="text" size="7" placeholder="Login" name="Login" maxlength="10" autocomplete="on">
+			<p></p>
+			<input class="LogInText" required type="password" size="7" placeholder="Password" name="Password" autocomplete="on">
+			<p></p>
+			<input class="LogInButton" type="submit" value="Log In">
+			<p></p>
+			<button class="LogInButton">Sign Up</button>
 		</div>
 	</body>
 </html>
