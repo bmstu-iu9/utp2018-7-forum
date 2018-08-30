@@ -43,26 +43,31 @@ exports.updateDB = function(db) {
 
 exports.addNewUser = function(login, password) {
     return new Promise(function(resolve, reject) {
-        readDB.then(
-            result => {
-                db = result
-
-                if (!contains(db, login)) {
+        fs.readFile(path, 'utf-8', function (err, db) {
+            if (err) {
+                reject(err);
+            } else {
+                db=JSON.parse(db);
+				if (!contains(db, login)) {
                     db.Users.push(new User(login, password))
-                    updateDB(db).then(
-                        result => {
-                            resolve(true)
-                        },
-                        error => {
-                            reject(error)
-                        }
-                    )
-                }
-            },
-            error => {
-                console.log('Error while adding new user ' + error)
-                reject(error)
+					json_db = JSON.stringify(db, '', 4)
+                    fs.writeFile(path, json_db, 'utf-8', function(err) {
+						if (err) {
+							console.log('Error while updating to database ' + error);
+							rej(err);
+						}
+					})
+                    result => {
+                        resolve(true)
+                    },
+                    error => {
+                        reject(error)
+                    }
+                } else {
+					reject("User already exist")
+				}
             }
+        })
         )
     });
 
@@ -70,14 +75,21 @@ exports.addNewUser = function(login, password) {
 
 exports.deleteUser = function(login) {
     return new Promise (function(resolve, reject){
-        readDB.then(
-            result => {
-                db = result;
-
-                var currentUser = contains(db, login)
+        fs.readFile(path, 'utf-8', function (err, db) {
+            if (err) {
+                reject(err);
+            } else {
+                db=JSON.parse(db);
+				var currentUser = contains(db, login)
                 if (currentUser != -1) {
                     db.Users.splice(db.Users[currentUser], 1)
-                    updateDB(db).then(
+					json_db = JSON.stringify(db, '', 4)
+                    fs.writeFile(path, json_db, 'utf-8', function(err) {
+						if (err) {
+							console.log('Error while updating to database ' + error);
+							rej(err);
+						}
+					}).then(
                         result => {
                             resolve(true)
                         },
@@ -86,14 +98,9 @@ exports.deleteUser = function(login) {
                         }
                     )
                 }
-            },
-            error => {
-                console.log('Error while delete user ' + error)
-                reject(error)
-            }
         )
     });
-}
+}}}
 
 function contains(db, login) {
     var user;
