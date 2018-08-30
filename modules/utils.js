@@ -1,3 +1,6 @@
+const qs = require('querystring')
+
+
 exports.readBody = function(req, res) {
     return new Promise(function(resolve, reject) {
         let body = ''
@@ -15,9 +18,10 @@ exports.readBody = function(req, res) {
             }
         })
         .on('end', function() {
+            console.log(body)
             try {
                 if (body) {
-                    body = JSON.parse(body)
+                    body = qs.parse(body)
                 }
                 resolve(body)
             } catch (err) {
