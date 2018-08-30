@@ -87,7 +87,7 @@ exports.deleteUser = function(login) {
                     )
                 }
             },
-            error {
+            error => {
                 console.log('Error while delete user ' + error)
                 reject(error)
             }
