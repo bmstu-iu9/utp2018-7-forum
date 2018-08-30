@@ -160,11 +160,11 @@
 		<a href="index.html"><img src="../static/img/artifact_logo.png" style="position:absolute;left:289;"></a>
 		<iframe style="position:absolute;top:275;left:320;" width="1280" height="720" src="https://www.youtube.com/embed/DA5mY8XqrHU" frameborder="0" allowfullscreen></iframe>
 		<div class="LogIn">
-			<form>
+			<form method="post" action="/auth">
 				<p></p>
-				<input class="LogInText" required type="text" size="12" placeholder="Login" name="Login" maxlength="15" autocomplete="on">
+				<input class="LogInText" required type="text" size="12" placeholder="Login" name="login" maxlength="15" autocomplete="on">
 				<p></p>
-				<input class="LogInText" required type="password" size="12" placeholder="Password" name="Password" autocomplete="on">
+				<input class="LogInText" required type="password" size="12" placeholder="Password" name="password" autocomplete="on">
 				<p></p>
 				<input class="LogInButton" type="submit" value="Log In">
 				<p></p>
