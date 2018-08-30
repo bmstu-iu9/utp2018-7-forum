@@ -10,10 +10,6 @@
 			img {
 				border: 1px solid #808080;
 			}
-			H1 {
-				color: #DCDCDC
-				align: middle
-			}
 			.shiny-button {
 				width:275px;
 				height:25px;
@@ -153,44 +149,61 @@
 				background-image: -moz-linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
 				background-image: -o-linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
 				background-image: linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
-			}
-			.Registration {
+			}	
+			.CreateThread{
 				position:absolute;
-				top:257;
+				top:280;
 				left:289;
-				border: 1px solid gray;
-				padding: 0 10px;
-				width:1323px;
-				height:300px;
-				text-align: middle
+				width:1342px;
+				height:1000px;
 			}
-			.RegistrationText {
-				background-color: #2b2b2b;
-				color: #FFFFFF;
-				border: solid #A9A9A9
+			.Title{
+				position:absolute;
+				top:0;
+				left:0;
+				border: 3px solid #A9A9A9;
+				width:670px;
+				height:90px;
+				background-color: #2E2E2E;
 			}
-			.RegistrationButton {
-				cursor:pointer;
-				width:120px;
-				height:25px;
-				margin-left: 604px;
+			.Text{
+				position:absolute;
+				top:110;
+				left:0;
+				border: 3px solid #A9A9A9;
+				width:1338px;
+				height:500px;
+				background-color: #2E2E2E;
+			}
+			textarea{
+				border-style: none;
+				outline:none;
+				resize: none;
+				background-color: #2E2E2E;
+				color: #D8D8D8;
+			}
+			.CreateButton{
+				cursor: pointer;
+				position:absolute;
+				top:630;
+				left:0;
+				border: 3px solid #A9A9A9;
+				width:200px;
+				height:50px;
 				display: inline-block;
 				text-align: center;
-				border-width: 1px;
-				border-style: solid;
 				text-transform: uppercase;
 				text-decoration: none;
 				line-height: 1.1;
 				font-weight: normal;
 				font-family: sans-serif;
 				color: #C0C0C0;
-				font-size: 12px;
+				font-size: 20px;
 				background-color: #2b2b2b;
 				background-image: -webkit-linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
 				background-image: -moz-linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
 				background-image: -o-linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
 				background-image: linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
-				border-color: hsl(0, 0%, 17%);
 				-webkit-box-shadow: inset 0 0 1px 1px #616161, 0 0 1px 3px rgba(0, 0, 0, 0.15);
 				-moz-box-shadow: inset 0 0 1px 1px #616161, 0 0 1px 3px rgba(0, 0, 0, 0.15);
 				box-shadow: inset 0 0 1px 1px #616161, 0 0 1px 3px rgba(0, 0, 0, 0.15);
@@ -200,38 +213,7 @@
 				text-shadow: 1px 1px 1px #000;
 				-webkit-border-radius: 0px;
 				-moz-border-radius: 0px;
-				border-radius: 0px;
-			}
-
-			.RegistrationButton strong {
-				letter-spacing: 1px;
-				font-size: 20px;
-			}
-
-			.RegistrationButton:hover {
-				color: #FFFFFF;
-				background-color: #333;
-				background-image: -webkit-linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
-				background-image: -moz-linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
-				background-image: -o-linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
-				background-image: linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
-				border-color: hsl(0, 0%, 20%);
-				-webkit-box-shadow: inset 0 0 1px 1px #666, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				-moz-box-shadow: inset 0 0 1px 1px #666, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				box-shadow: inset 0 0 1px 1px #666, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				-webkit-text-shadow: 1px 1px 1px #000;
-				-moz-text-shadow: 1px 1px 1px #000;
-				-o-text-shadow: 1px 1px 1px #000;
-				text-shadow: 1px 1px 1px #000;
-			}
-
-			RegistrationButton:active {
-				color: #C0C0C0;
-				background-color: #232323;
-				background-image: -webkit-linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
-				background-image: -moz-linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
-				background-image: -o-linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
-				background-image: linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
+				padding: 12px 30px 12px 30px;
 			}
 		</style>
 	</head>
@@ -241,6 +223,17 @@
 		<a href="https://store.steampowered.com/app/583950/Artifact/" class="shiny-button" style="position:absolute;top:206;left:961;"><strong>Page on Steam</strong></a>
 		<a href="about.html" class="shiny-button" style="position:absolute;top:206;left:1297;"><strong>About</strong></a>
 		<a href="index.html"><img src="../static/img/artifact_logo.png" style="position:absolute;left:289;"></a>
+		<div class="CreateThread">
+			<form>
+				<div class="Title">
+					<p><textarea rows="1" cols="24" name="text" required placeholder="Title" maxlength="24" style="font-size: 50px"></textarea></p>
+				</div>
+				<div class="Text">
+					<p><textarea rows="13" cols="80" name="text" required placeholder="Text" maxlength="940" style="font-size: 30px"></textarea></p>
+				</div>
+				<button class="CreateButton"><strong>Create</strong></button>
+			</form>
+		</div>
 		<div class="LogIn">
 			<form>
 				<p></p>
@@ -252,19 +245,6 @@
 				<p></p>
 			</form>
 			<a href="RegistrationPage.html" class="LogInButton">Sign Up</a>
-		</div>
-		<div class="Registration">
-			<p><H1 align="middle">Registration</H1></p>
-			<form>
-				<p></p>
-				<input class="RegistrationText" required type="text" size="20" placeholder="Login" name="login" maxlength="15" autocomplete="on" Style ="margin-left: 575px; height:35px">
-				<p></p>
-				<input class="RegistrationText" required type="password" size="20" placeholder="Password" name="password" autocomplete="on" Style ="margin-left: 575px; height:35px">
-				<p></p>
-				<input class="RegistrationText" required type="password" size="20" placeholder="Confirm your password" name="passwordconfirm" autocomplete="on" Style ="margin-left: 575px; height:35px">
-				<p></p>
-				<button class="RegistrationButton">Sign Up</button>
-			</form>
 		</div>
 	</body>
 </html>
