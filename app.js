@@ -1,27 +1,47 @@
 const http = require('http');
-const send_answer = requre('./modules/send')
+const send_answer = require('./modules/send');
+const urlapi = require('url')
 
 
 var server = http.createServer(function (req, res) {
-    const url = parse(req.url)
+    const url = urlapi.parse(req.url)
 
     if (req.method == "GET") {
-        switch (url) {
+        if (url.pathname.startsWith('/static')) {
+            const filepath = url.pathname.substring(1)
+            const filetype = url.pathname.substring(url.pathname.lastIndexOf('.'))
+            console.log(filepath, filetype)
+            switch (filetype) {
+                case '.png':
+                    send_answer(filepath, res, 'image/png')
+                    break
+                case '.js':
+                    send_answer(filepath, res, 'text/javascript')
+                    break
+                case '.css':
+                    send_answer(filepath, res, 'text/css')
+                default:
+                    break
+            }
+        }
+        switch (url.pathname) {
             case '/':
-                send_answer('/templates/index.html', res, 'text/html')
+                send_answer('templates/index.html', res, 'text/html')
                 break
             case '/about':
-                send_answer('/templates/about.html', res, 'text/html')
+                send_answer('templates/about.html', res, 'text/html')
                 break
             case '/forum':
-                send_answer('/templates/forum.html', res, 'text/html')
+                send_answer('templates/forum.html', res, 'text/html')
                 break
             case '/profile':
-                send_answer('/templates/profile_page.html', res, 'text/html')
+                send_answer('templates/profile_page.html', res, 'text/html')
                 break
-            case '/registration'
-                send_answer('/templates/registration_page.html', res, 'text/html')
+            case '/registration':
+                send_answer('templates/registration_page.html', res, 'text/html')
                 break
+            default:
+                send_answer('templates/404.html', res, 'text/html')
         }
     }
 });

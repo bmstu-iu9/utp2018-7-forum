@@ -1,7 +1,8 @@
 const fs = require('fs')
+const path = require('path')
 
 module.exports = function(file, res, content) {
-    if (fs.existsSync(file)) {
+    if (fs.existsSync(path.resolve('', file))) {
         html = fs.readFileSync(file)
         res.writeHead(200, {'Content-Type': content})
         res.end(html)
