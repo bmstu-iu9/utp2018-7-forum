@@ -1,21 +1,30 @@
 const http = require('http');
-const router = require('./modules/router');
-const db_function = require('./modules/database_functions')
+const send_answer = requre('./modules/send')
 
-router.register('GET', '/', function(req, res) {
-    db_function.connect('users')
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Hello World');
-})
-
-router.register('GET', 'connectToDatabase', function(req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Hello World');
-})
 
 var server = http.createServer(function (req, res) {
-  router.route(req, res);
+    const url = parse(req.url)
+
+    if (req.method == "GET") {
+        switch (url) {
+            case '/':
+                send_answer('/templates/index.html', res, 'text/html')
+                break
+            case '/about':
+                send_answer('/templates/about.html', res, 'text/html')
+                break
+            case '/forum':
+                send_answer('/templates/forum.html', res, 'text/html')
+                break
+            case '/profile':
+                send_answer('/templates/profile_page.html', res, 'text/html')
+                break
+            case '/registration'
+                send_answer('/templates/registration_page.html', res, 'text/html')
+                break
+        }
+    }
 });
 
-// Start it up
+
 server.listen(8000);
