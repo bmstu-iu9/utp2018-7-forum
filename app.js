@@ -1,7 +1,10 @@
 const http = require('http');
 const send_answer = require('./modules/send');
 const urlapi = require('url')
+const db = require('./modules/db')
+const reg = require('./modules/registration')
 
+db.users.connect()
 
 var server = http.createServer(function (req, res) {
     const url = urlapi.parse(req.url)
@@ -39,6 +42,16 @@ var server = http.createServer(function (req, res) {
                 break
             case '/registration':
                 send_answer('templates/registration_page.html', res, 'text/html')
+                break
+            default:
+                send_answer('templates/404.html', res, 'text/html')
+        }
+    } else if(req.method == 'POST') {
+        switch (url.pathname) {
+            case '/auth':
+                break
+            case '/register':
+                reg.registration(req, res)
                 break
             default:
                 send_answer('templates/404.html', res, 'text/html')
