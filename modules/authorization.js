@@ -11,7 +11,11 @@ exports.authorize = function(req, res) {
                         function(cookies) {
                             send_answer('templates/index.html', res, 'text/html', cookies=cookies, redirect=true)
                         }
-                    )
+                    ).catch(function(error) {
+                        console.log(error)
+                        res.statusCode = 400
+                        res.end("Something went wrong")
+                    })
                 },
                 error => {
                     console.log(error)
