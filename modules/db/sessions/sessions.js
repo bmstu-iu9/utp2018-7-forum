@@ -1,5 +1,5 @@
 const fs = require('fs')
-const config = require('config')
+const config = require('../../config')
 const Session = require('./session')
 
 var path = __dirname + '/sessions.json'
@@ -47,8 +47,9 @@ exports.createSession = function(login) {
 
             } else {
                 db = JSON.parse(db)
-                date = new Date().getTime() + 90000000
-                db.Sessions.push(new Session(generateID(), login, date));
+                date = new Date().getTime() + 604800
+                let session = new Session(generateID(), login, date)
+                db.Sessions.push(session);
 
                 json_db = JSON.stringify(db, '', 4)
 
@@ -56,8 +57,10 @@ exports.createSession = function(login) {
                     if (err) {
                         console.log('Error while writing sessions.json')
                         reject(err)
-                    } else
-                        resolve(x.id)
+                    } else {
+                        console.log('Session created')
+                        resolve(session.id)
+                    }
                 })
             }
         })
@@ -139,8 +142,7 @@ exports.deleteAllSessions = function() {
 
     fs.writeFile(path, JSON.stringify(sessions, '', 4), 'utf-8', function(err) {
         if (err)
-        console.log('Error while writing to sessions.js')
-            throw new Error(err);
+            console.log('Error while writing to sessions.js')
     });
 };
 

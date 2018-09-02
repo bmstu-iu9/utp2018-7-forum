@@ -27,14 +27,15 @@ exports.addUser = function(login, password) {
                 db = JSON.parse(db);
 
                 if (!contains(db, login)) {
-                    db.Users.push(new User(login, password))
+                    let u = new User(login, password)
+                    db.Users.push(u)
                     json_db = JSON.stringify(db, '', 4)
                     fs.writeFile(path, json_db, 'utf-8', function(err) {
                         if (err) {
                             console.log('Error while writing to db')
                             reject(err)
                         } else {
-                            resolve(true)
+                            resolve(u)
                         }
                     })
                 } else {

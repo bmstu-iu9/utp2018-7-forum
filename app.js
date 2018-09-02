@@ -3,8 +3,10 @@ const send_answer = require('./modules/send');
 const urlapi = require('url')
 const db = require('./modules/db')
 const reg = require('./modules/registration')
+const utils = require('./modules/utils')
 
 db.users.connect()
+db.sessions.connect()
 
 var server = http.createServer(function (req, res) {
     const url = urlapi.parse(req.url)
@@ -29,6 +31,7 @@ var server = http.createServer(function (req, res) {
         }
         switch (url.pathname) {
             case '/':
+                utils.readCookies(req)
                 send_answer('templates/index.html', res, 'text/html')
                 break
             case '/about':

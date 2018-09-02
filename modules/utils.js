@@ -32,3 +32,8 @@ exports.readBody = function(req, res) {
         })
     })
 }
+
+exports.readCookies = function(req) {
+    let cookies = req.headers.cookie
+    console.log(cookies)
+}
