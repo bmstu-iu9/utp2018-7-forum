@@ -27,13 +27,14 @@ exports.getUser = function(login) {
                 db = JSON.parse(db);
                 current_user = contains(db, login)
 
-                if current_user {
+                if (current_user) {
                     resolve(current_user)
                 } else {
                     reject('No such user')
                 }
             }
         })
+    })
 }
 
 exports.addUser = function(login, password) {

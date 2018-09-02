@@ -65,7 +65,7 @@ exports.createSession = function(login) {
                     } else {
                         console.log('Session created')
                         let id = 'session_id=' + session.id + '; Path=/'
-                        let login = 'login=' + login + '; Path=/'
+                        let login = 'login=' + session.login + '; Path=/'
                         resolve([id, login])
                     }
                 })

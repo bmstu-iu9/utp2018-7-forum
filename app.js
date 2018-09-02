@@ -53,6 +53,8 @@ var server = http.createServer(function (req, res) {
         switch (url.pathname) {
             case '/auth':
                 break
+            case '/logout':
+                break
             case '/register':
                 reg.registration(req, res)
                 break

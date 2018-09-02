@@ -11,10 +11,13 @@ module.exports = function(file, res, content, cookies=null, redirect=null) {
             to_head['Set-Cookie'] = cookies
         }
         console.log(to_head)
-        res.writeHead(200, to_head)
+
         if (redirect) {
-            res.redirect('/')
+            to_head['Location'] = '/'
+            res.writeHead(302, to_head)
+            res.end()
         } else {
+            res.writeHead(200, to_head)
             res.end(html)
         }
     } else {
