@@ -30,7 +30,12 @@ exports.getSession = function(id) {
 
             } else {
                 db = JSON.parse(db);
-                resolve(contains(db, id));
+                let current_session = contains(db, id)
+                if (current_session) {
+                    resovle(current_session)
+                } else {
+                    reject('No session with id=' + id)
+                }
             }
         })
     })
