@@ -7,7 +7,9 @@ var users;
 
 exports.connect = function() {
     try {
+        console.log('Trying to read users.json')
         users = JSON.parse(fs.readFileSync(path, 'utf-8'));
+        console.log('Success read users.json')
     } catch (err) {
         if (err.message.indexOf("ENOENT") == 0) {
             console.log('Creating database with users');

@@ -10,6 +10,7 @@ exports.connect = function() {
     try {
         console.log('Trying to read sessions.json')
         sessions = JSON.parse(fs.readFileSync(path, 'utf-8'))
+        console.log('Success read sessions.json')
     } catch (err) {
         if (err.message.indexOf("ENOENT") == 0) {
             console.log('Creating file with sessions')
