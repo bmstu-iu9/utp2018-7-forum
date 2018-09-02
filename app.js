@@ -38,7 +38,7 @@ var server = http.createServer(function (req, res) {
                 send_answer('templates/about.html', res, 'text/html')
                 break
             case '/forum':
-                send_answer('templates/forum.html', res, 'text/html')
+                send_answer('templates/Forum.html', res, 'text/html')
                 break
             case '/profile':
                 send_answer('templates/profile_page.html', res, 'text/html')
