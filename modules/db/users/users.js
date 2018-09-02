@@ -17,90 +17,33 @@ exports.connect = function() {
     }
 };
 
-exports.readDB = function() {
-    return new Promise(function(res, rej) {
-        fs.readFile(path, 'utf-8', function (err, db) {
-            if (err) {
-                rej(err);
-            } else {
-                res(JSON.parse(db));
-            }
-        });
-    });
-}
-
-exports.updateDB = function(db) {
-    return new Promise (function(res, rej) {
-        json_db = JSON.stringify(db, '', 4)
-        fs.writeFile(path, json_db, 'utf-8', function(err) {
-            if (err) {
-                console.log('Error while updating to database ' + error);
-                rej(err);
-            }
-        });
-    });
-}
-
-exports.addNewUser = function(login, password) {
+exports.addUser = function(login, password) {
     return new Promise(function(resolve, reject) {
-        fs.readFile(path, 'utf-8', function (err, db) {
+        fs.readFile(path, 'utf-8', function(err, db) {
             if (err) {
-                reject(err);
+                console.log('Error while reading db')
+                reject(err)
             } else {
-                db=JSON.parse(db);
-				if (!contains(db, login)) {
+                db = JSON.parse(db);
+
+                if (!contains(db, login)) {
                     db.Users.push(new User(login, password))
-					json_db = JSON.stringify(db, '', 4)
+                    json_db = JSON.stringify(db, '', 4)
                     fs.writeFile(path, json_db, 'utf-8', function(err) {
-						if (err) {
-							console.log('Error while updating to database ' + error);
-							rej(err);
-						}
-					})
-                    result => {
-                        resolve(true)
-                    },
-                    error => {
-                        reject(error)
-                    }
+                        if (err) {
+                            console.log('Error while writing to db')
+                            reject(err)
+                        } else {
+                            resolve(true)
+                        }
+                    })
                 } else {
-					reject("User already exist")
-				}
+                    reject('User exists')
+                }
             }
         })
-        )
-    });
-
+    })
 }
-
-exports.deleteUser = function(login) {
-    return new Promise (function(resolve, reject){
-        fs.readFile(path, 'utf-8', function (err, db) {
-            if (err) {
-                reject(err);
-            } else {
-                db=JSON.parse(db);
-				var currentUser = contains(db, login)
-                if (currentUser != -1) {
-                    db.Users.splice(db.Users[currentUser], 1)
-					json_db = JSON.stringify(db, '', 4)
-                    fs.writeFile(path, json_db, 'utf-8', function(err) {
-						if (err) {
-							console.log('Error while updating to database ' + error);
-							rej(err);
-						}
-					}).then(
-                        result => {
-                            resolve(true)
-                        },
-                        error => {
-                            reject(error)
-                        }
-                    )
-                }
-        )
-    });
-}}}
 
 function contains(db, login) {
     var user;
