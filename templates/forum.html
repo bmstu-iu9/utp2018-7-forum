@@ -256,6 +256,18 @@
 				height:50px;
 				background-color: #8A6B41;
 			}
+			.LoggedIn {
+				position:fixed;
+				top:350;
+				left:-5;
+				border: 5px solid #696969;
+				padding: 0 10px;
+				width:120px;
+				height:180px;
+			}
+			.LoggedInText {
+				color: #FFFFFF;
+			}
 		</style>
 	</head>
 	<body bgcolor="	#000000">
@@ -268,33 +280,33 @@
 			<p align="center"><font size="+3" color="#D8D8D8"><b><big><big>Developer Insights</big></big></b></font></p>
 		</div>
 		<div class="News">
-			<a href="News.html"><p align="center"><font size="+3" color="#D8D8D8"><big>News</big></font></p></a>
+			<a href="/news"><p align="center"><font size="+3" color="#D8D8D8"><big>News</big></font></p></a>
 		</div>
 		<div class="NewsAbout">
-			<a href="News.html"><p align="center"><font size="+3" color="#D8D8D8"><i><big>List of announced patches and events</big></i></font></p></a>
+			<a href="/news"><p align="center"><font size="+3" color="#D8D8D8"><i><big>List of announced patches and events</big></i></font></p></a>
 		</div>
 		<div class="Bugs">
-			<a href="KnownBugs.html"><p align="center"><font size="+3" color="#D8D8D8"><big>Known Bugs</big></font></p></a>
+			<a href="/known_bugs"><p align="center"><font size="+3" color="#D8D8D8"><big>Known Bugs</big></font></p></a>
 		</div>
 		<div class="BugsAbout">
-			<a href="KnownBugs.html"><p align="center"><font size="+3" color="#D8D8D8"><i><big>Bugs that Valve is aware of</big></i></font></p></a>
+			<a href="/known_bugs"><p align="center"><font size="+3" color="#D8D8D8"><i><big>Bugs that Valve is aware of</big></i></font></p></a>
 		</div>
 		<div class="HeaderCommunity">
 			<p align="center"><font size="+3" color="#D8D8D8"><b><big><big>Community</big></big></b></font></p>
 		</div>
 		<div class="GeneralDiscussion">
-			<a href="GeneralDiscussion.html"><p align="center"><font size="+3" color="#D8D8D8"><big>General Discussion</big></font></p></a>
+			<a href="/general_discussion"><p align="center"><font size="+3" color="#D8D8D8"><big>General Discussion</big></font></p></a>
 		</div>
 		<div class="GeneralDiscussionAbout">
-			<a href="GeneralDiscussion.html"><p align="center"><font size="+3" color="#D8D8D8"><i><big>Balance, Meta & Trading</big></i></font></p></a>
+			<a href="/general_discussion"><p align="center"><font size="+3" color="#D8D8D8"><i><big>Balance, Meta & Trading</big></i></font></p></a>
 		</div>
 		<div class="Fluff">
-			<a href="Fluff.html"><p align="center"><font size="+3" color="#D8D8D8"><big>Fluff</big></font></p></a>
+			<a href="/fluff"><p align="center"><font size="+3" color="#D8D8D8"><big>Fluff</big></font></p></a>
 		</div>
 		<div class="FluffAbout">
-			<a href="Fluff.html"><p align="center"><font size="+3" color="#D8D8D8"><i><big>Feel free to discuss anything unrelated</big></i></font></p></a>
+			<a href="/fluff"><p align="center"><font size="+3" color="#D8D8D8"><i><big>Feel free to discuss anything unrelated</big></i></font></p></a>
 		</div>
-		<div class="LogIn">
+		<div class="LogIn" id="logIn" style="display: block">
 			<form>
 				<p></p>
 				<input class="LogInText" required type="text" size="12" placeholder="Login" name="login" maxlength="15" autocomplete="on">
@@ -306,5 +318,17 @@
 			</form>
 			<a href="/registration" class="LogInButton">Sign Up</a>
 		</div>
+		<div class="LoggedIn" id="logedIn" style="display: none">
+			<p style="color:black">не пасхалка</p>
+			<p></p>
+			<p class="LoggedInText" align="center">You logged in as</p>
+			<p></p>
+			<p class="LoggedInText" id="logInText" align="center"></p>
+			<button href="/" class="LogInButton" id="logOut">Log Out</button>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js%22%3E"></script>
+		<script src="../static/js/logIn_display_none.js"></script>
+		<script src="../static/js/logIn_display_block.js"></script>
+		<script src="../static/js/log_out.js"></script>
 	</body>
 </html>

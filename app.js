@@ -38,7 +38,7 @@ var server = http.createServer(function (req, res) {
                 send_answer('templates/about.html', res, 'text/html')
                 break
             case '/forum':
-                send_answer('templates/Forum.html', res, 'text/html')
+                send_answer('templates/forum.html', res, 'text/html')
                 break
             case '/profile':
                 send_answer('templates/profile_page.html', res, 'text/html')
@@ -48,6 +48,21 @@ var server = http.createServer(function (req, res) {
                 break
             case '/logout':
                 auth.logout(req, res)
+                break
+            case '/create_thread':
+                send_answer('templates/create_thread.html', res, 'text/html')
+                break
+            case '/news':
+                send_answer('templates/news.html', res, 'text/html')
+                break
+            case '/known_bugs':
+                send_answer('templates/known_bugs.html', res, 'text/html')
+                break
+            case '/general_discussion':
+                send_answer('templates/general_discussion.html', res, 'text/html')
+                break
+            case '/fluff':
+                send_answer('templates/Fluff.html', res, 'text/html')
                 break
             default:
                 send_answer('templates/404.html', res, 'text/html')
