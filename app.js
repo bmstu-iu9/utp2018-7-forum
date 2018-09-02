@@ -46,6 +46,9 @@ var server = http.createServer(function (req, res) {
             case '/registration':
                 send_answer('templates/registration_page.html', res, 'text/html')
                 break
+            case '/logout':
+                auth.logout(req, res)
+                break
             default:
                 send_answer('templates/404.html', res, 'text/html')
         }
@@ -53,9 +56,6 @@ var server = http.createServer(function (req, res) {
         switch (url.pathname) {
             case '/auth':
                 auth.authorize(req, res)
-                break
-            case '/logout':
-                auth.logout(req, res)
                 break
             case '/register':
                 reg.registration(req, res)

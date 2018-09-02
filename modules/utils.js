@@ -36,10 +36,10 @@ exports.readBody = function(req, res) {
 exports.readCookies = function(req) {
     let cookies = req.headers.cookie
     let out = {}
-
+    
     cookies && cookies.split(';').forEach(function(t) {
         let parts = t.split('=')
-        if (parts[0] in ['session_id', 'login']) {
+        if (parts[0] == 'session_id' || parts[0] == 'login') {
             out[parts[0]] = parts[1]
         }
 

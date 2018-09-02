@@ -9,7 +9,7 @@ exports.registration = function(req, res) {
                 result => {
                     db.sessions.createSession(result.login).then(
                         function(cookies) {
-                            send_answer('templates/index.html', res, 'text/html', cookies=cookies, redirect=true)
+                            send_answer('templates/index.html', res, 'text/html', cookies=cookies, redirect='/')
                         }).catch(function(err) {
                             console.log(err)
                             res.statusCode = 400
