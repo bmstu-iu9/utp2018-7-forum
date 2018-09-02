@@ -38,10 +38,11 @@ exports.logout = function(req, res) {
             cookies = utils.readCookies(req)
             db.sessions.deleteSession(cookies['session_id']).then(
                 result => {
-                    cookies['session_id'] += '; expires=Thu, 01 Jan 1970 00:00:00 GMT'
-                    cookies['login'] += '; expires=Thu, 01 Jan 1970 00:00:00 GMT'
-                    new_cookies = [cookies['session_id'], cookies['login']]
-                    send_answer('templates/index.html', res, 'text/html', cookies=cookies, redirect='/')
+                    // FIXME: Rework this
+                    // cookies['session_id'] += '; expires=Thu, 01 Jan 1970 00:00:00 GMT'
+                    // cookies['login'] += '; expires=Thu, 01 Jan 1970 00:00:00 GMT'
+                    // new_cookies = [cookies['session_id'], cookies['login']]
+                    send_answer('templates/index.html', res, 'text/html', redirect='/')
                 },
                 error => {
                     console.log(error)
