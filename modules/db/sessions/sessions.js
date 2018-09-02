@@ -103,7 +103,10 @@ exports.deleteSession = function(id) {
                         }
                     })
 
-                    resolve(true)
+                    let id = 'session_id=; Path=/ ; expires=Thu, 01 Jan 1970 00:00:00 GMT'
+                    let login = 'login=; Path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT'
+
+                    resolve([id, login]])
                 }
             }
         })
