@@ -35,5 +35,15 @@ exports.readBody = function(req, res) {
 
 exports.readCookies = function(req) {
     let cookies = req.headers.cookie
-    console.log(cookies)
+    let out = {}
+
+    cookies && cookies.split(';').forEach(function(t) {
+        let parts = t.split('=')
+        if (parts[0] in ['session_id', 'login']) {
+            out[parts[0]] = parts[1]
+        }
+
+    })
+    console.log('cookies ' + out)
+    return out;
 }

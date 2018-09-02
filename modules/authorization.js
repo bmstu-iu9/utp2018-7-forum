@@ -31,3 +31,18 @@ exports.authorize = function(req, res) {
         }
     )
 }
+
+exports.logout = function(req, res) {
+    utils.readBody(req, res).then(
+        result => {
+            cookies = utils.readCookies()
+            db.sessions.deleteSession(cookies['id'])
+            send_answer('templates/index.html', res, 'text/html', cookies='CLEAR', redirect=true)
+        },
+        error => {
+            console.log(error)
+            res.statusCode = 400
+            res.end("Something went wrong")
+        }
+    )
+}

@@ -8,7 +8,12 @@ module.exports = function(file, res, content, cookies=null, redirect=null) {
             'Content-Type': content
         }
         if (cookies != null) {
-            to_head['Set-Cookie'] = cookies
+            if (cookies == 'CLEAR') {
+                res.clearCookie('login')
+                res.clearCookie('session_id')
+            } else {
+                to_head['Set-Cookie'] = cookies
+            }
         }
         console.log(to_head)
 

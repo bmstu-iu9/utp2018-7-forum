@@ -3,6 +3,7 @@ const send_answer = require('./modules/send');
 const urlapi = require('url')
 const db = require('./modules/db')
 const reg = require('./modules/registration')
+const auth = require('./modules/authorization')
 const utils = require('./modules/utils')
 
 db.users.connect()
@@ -31,7 +32,6 @@ var server = http.createServer(function (req, res) {
         }
         switch (url.pathname) {
             case '/':
-                utils.readCookies(req)
                 send_answer('templates/index.html', res, 'text/html')
                 break
             case '/about':
@@ -52,8 +52,10 @@ var server = http.createServer(function (req, res) {
     } else if(req.method == 'POST') {
         switch (url.pathname) {
             case '/auth':
+                auth.authorize(req, res)
                 break
             case '/logout':
+                auth.logout(req, res)
                 break
             case '/register':
                 reg.registration(req, res)
