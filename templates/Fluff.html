@@ -213,6 +213,18 @@
 				height:45px;
 				background-color: #2E2E2E;
 			}
+			.LoggedIn {
+				position:fixed;
+				top:350;
+				left:-5;
+				border: 5px solid #696969;
+				padding: 0 10px;
+				width:120px;
+				height:180px;
+			}
+			.LoggedInText {
+				color: #FFFFFF;
+			}
 		</style>
 	</head>
 	<body bgcolor="	#000000">
@@ -250,8 +262,18 @@
 			</form>
 			<a href="/registration" class="LogInButton">Sign Up</a>
 		</div>
+		<div class="LoggedIn" id="logedIn" style="display: none">
+			<p style="color:black">not a text</p>
+			<p></p>
+			<p class="LoggedInText" align="center">You are logged in as</p>
+			<p></p>
+			<p class="LoggedInText" id="logInText" align="center"></p>
+			<button href="/" class="LogInButton" id="logOut">Log Out</button>
+		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js%22%3E"></script>
 		<script src="../static/js/logIn_display_none.js"></script>
 		<script src="../static/js/create_thread_display_none.js"></script>
+		<script src="../static/js/logIn_display_block.js"></script>
+		<script src="../static/js/log_out.js"></script>
 	</body>
 </html>
