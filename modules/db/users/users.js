@@ -17,6 +17,25 @@ exports.connect = function() {
     }
 };
 
+exports.getUser = function(login) {
+    return new Promise(function(resolve, reject) {
+        fs.readFile(path, 'utf-8', function(err, db) {
+            if (err) {
+                console.log('Error while reading db')
+                reject(err)
+            } else {
+                db = JSON.parse(db);
+                current_user = contains(db, login)
+
+                if current_user {
+                    resolve(current_user)
+                } else {
+                    reject('No such user')
+                }
+            }
+        })
+}
+
 exports.addUser = function(login, password) {
     return new Promise(function(resolve, reject) {
         fs.readFile(path, 'utf-8', function(err, db) {
