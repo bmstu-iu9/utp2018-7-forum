@@ -1,0 +1,1 @@
+exports.SESSION_LENGTH = 30
