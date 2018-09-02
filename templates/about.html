@@ -228,7 +228,7 @@
 			It will be released for Microsoft Windows, macOS and Linux in late 2018, and for Android and iOS devices in 2019.</font></p>
 		</div>
 		<div class="LogIn" id="logIn" style="display: block">
-			<form>
+			<form method="post" action="/auth">
 				<p></p>
 				<input class="LogInText" required type="text" size="12" placeholder="Login" name="login" maxlength="15" autocomplete="on">
 				<p></p>
@@ -245,7 +245,7 @@
 			<p class="LoggedInText" align="center">You logged in as</p>
 			<p></p>
 			<p class="LoggedInText" id="logInText" align="center"></p>
-			<button href="/" class="LogInButton" id="logOut">Log Out</button>
+			<button class="LogInButton" id="logOut">Log Out</button>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js%22%3E"></script>
 		<script src="../static/js/logIn_display_none.js"></script>
