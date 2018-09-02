@@ -5,8 +5,10 @@ const utils = require('./utils')
 exports.registration = function(req, res) {
     utils.readBody(req, res).then(
         result => {
-            db.users.addNewUser(result.login, result.password).then(
+            console.log(result.login, result.password)
+            db.users.addUser(result.login, result.password).then(
                 result => {
+                    console.log('success')
                     send_answer('templates/index.html', res, 'text/html')
                 },
                 error => {
@@ -17,7 +19,9 @@ exports.registration = function(req, res) {
             )
         },
         error => {
-
+            console.log(error)
+            res.statusCode = 400
+            res.end("Something went wrong")
         }
     )
 }
