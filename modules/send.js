@@ -10,7 +10,6 @@ module.exports = function(file, res, content, cookies=null, redirect=null) {
         if (cookies != null) {
             to_head['Set-Cookie'] = cookies
         }
-        console.log(to_head)
 
         if (redirect) {
             to_head['Location'] = redirect

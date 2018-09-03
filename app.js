@@ -8,6 +8,7 @@ const utils = require('./modules/utils')
 
 db.users.connect()
 db.sessions.connect()
+db.posts.connect()
 
 var server = http.createServer(function (req, res) {
     const url = urlapi.parse(req.url)
@@ -64,6 +65,19 @@ var server = http.createServer(function (req, res) {
             case '/fluff':
                 send_answer('templates/Fluff.html', res, 'text/html')
                 break
+            case '/posts':
+                db.posts.getPosts().then(
+                    result => {
+                        res.writeHead(200, {'Content-Type': 'application/json'})
+                        res.end(result)
+                    },
+                    error => {
+                        res.writeHead(400, {'Content-Type': 'text/html'})
+                        res.end(error)
+                    }
+                )
+
+                break
             default:
                 send_answer('templates/404.html', res, 'text/html')
         }
@@ -74,6 +88,12 @@ var server = http.createServer(function (req, res) {
                 break
             case '/register':
                 reg.registration(req, res)
+                break
+            case '/posts/create':
+                db.posts_manager.createPost(req, res)
+                break
+            case '/posts/add-comment':
+                db.posts_manager.createCommentToPost(req, res)
                 break
             default:
                 send_answer('templates/404.html', res, 'text/html')
