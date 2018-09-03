@@ -15,7 +15,7 @@ exports.connect = function() {
             console.log('Creating database with users');
             users = { "Users": [] };
             fs.writeFileSync(path, JSON.stringify(users, '', 4), 'utf-8');
-        } else log.error(err);
+        } else console.log(err);
     }
 };
 

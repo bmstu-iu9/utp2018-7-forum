@@ -16,7 +16,7 @@ var server = http.createServer(function (req, res) {
         if (url.pathname.startsWith('/static')) {
             const filepath = url.pathname.substring(1)
             const filetype = url.pathname.substring(url.pathname.lastIndexOf('.'))
-            console.log(filepath, filetype)
+
             switch (filetype) {
                 case '.png':
                     send_answer(filepath, res, 'image/png')
@@ -83,3 +83,5 @@ var server = http.createServer(function (req, res) {
 
 
 server.listen(8000);
+
+console.log('Server started on port 8000')
