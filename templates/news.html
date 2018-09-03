@@ -4,228 +4,14 @@
 		<link rel="shortcut icon" href="../static/img/Small_logo.png" type="image/png">
 		<title>Arctifact</title>
 		<style>
-			body {
-				color: #fff; /* Цвет текста */
-			}
-			img {
-				border: 1px solid #808080;
-			}
-			.shiny-button {
-				width:275px;
-				height:25px;
-				display: inline-block;
-				text-align: center;
-				border-width: 1px;
-				border-style: solid;
-				text-transform: uppercase;
-				text-decoration: none;
-				line-height: 1.1;
-				font-weight: normal;
-				font-family: sans-serif;
-				color: #C0C0C0;
-				font-size: 12px;
-				background-color: #2b2b2b;
-				background-image: -webkit-linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
-				background-image: -moz-linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
-				background-image: -o-linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
-				background-image: linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
-				border-color: hsl(0, 0%, 17%);
-				-webkit-box-shadow: inset 0 0 1px 1px #616161, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				-moz-box-shadow: inset 0 0 1px 1px #616161, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				box-shadow: inset 0 0 1px 1px #616161, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				-webkit-text-shadow: 1px 1px 1px #000;
-				-moz-text-shadow: 1px 1px 1px #000;
-				-o-text-shadow: 1px 1px 1px #000;
-				text-shadow: 1px 1px 1px #000;
-				-webkit-border-radius: 0px;
-				-moz-border-radius: 0px;
-				border-radius: 0px;
-				padding: 12px 30px 12px 30px;
-			}
-
-			.shiny-button strong {
-				letter-spacing: 1px;
-				font-size: 30px;
-			}
-
-			.shiny-button:hover {
-				color: #FFFFFF;
-				background-color: #333;
-				background-image: -webkit-linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
-				background-image: -moz-linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
-				background-image: -o-linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
-				background-image: linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
-				border-color: hsl(0, 0%, 20%);
-				-webkit-box-shadow: inset 0 0 1px 1px #666, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				-moz-box-shadow: inset 0 0 1px 1px #666, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				box-shadow: inset 0 0 1px 1px #666, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				-webkit-text-shadow: 1px 1px 1px #000;
-				-moz-text-shadow: 1px 1px 1px #000;
-				-o-text-shadow: 1px 1px 1px #000;
-				text-shadow: 1px 1px 1px #000;
-			}
-
-			shiny-button:active {
-				color: #C0C0C0;
-				background-color: #232323;
-				background-image: -webkit-linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
-				background-image: -moz-linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
-				background-image: -o-linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
-				background-image: linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
-				padding: 13px 30px 11px 30px;
-			}
-			.LogIn {
-				position:fixed;
-				top:350;
-				left:-5;
-				border: 5px solid #696969;
-				padding: 0 10px;
-				width:120px;
-				height:180px;
-			}
-			.LogInText {
-				background-color: #2b2b2b;
-				color: #FFFFFF;
-				border: solid #A9A9A9
-			}
-			.LogInButton {
-				width:120px;
-				height:25px;
-				display: inline-block;
-				text-align: center;
-				border-width: 1px;
-				border-style: solid;
-				text-transform: uppercase;
-				text-decoration: none;
-				line-height: 1.1;
-				font-weight: normal;
-				font-family: sans-serif;
-				color: #C0C0C0;
-				font-size: 20px;
-				background-color: #2b2b2b;
-				background-image: -webkit-linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
-				background-image: -moz-linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
-				background-image: -o-linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
-				background-image: linear-gradient(top, #2e2e2e 0%, #3f3f3f 48%, #2b2b2b 49%, #2b2b2b 82%, #393939 100%);
-				border-color: hsl(0, 0%, 17%);
-				-webkit-box-shadow: inset 0 0 1px 1px #616161, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				-moz-box-shadow: inset 0 0 1px 1px #616161, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				box-shadow: inset 0 0 1px 1px #616161, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				-webkit-text-shadow: 1px 1px 1px #000;
-				-moz-text-shadow: 1px 1px 1px #000;
-				-o-text-shadow: 1px 1px 1px #000;
-				text-shadow: 1px 1px 1px #000;
-				-webkit-border-radius: 0px;
-				-moz-border-radius: 0px;
-				border-radius: 0px;
-			}
-
-			.LogInButton strong {
-				letter-spacing: 1px;
-				font-size: 20px;
-			}
-
-			.LogInButton:hover {
-				color: #FFFFFF;
-				background-color: #333;
-				background-image: -webkit-linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
-				background-image: -moz-linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
-				background-image: -o-linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
-				background-image: linear-gradient(top, #363636 0%, #474747 48%, #333 49%, #333 82%, #414141 100%);
-				border-color: hsl(0, 0%, 20%);
-				-webkit-box-shadow: inset 0 0 1px 1px #666, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				-moz-box-shadow: inset 0 0 1px 1px #666, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				box-shadow: inset 0 0 1px 1px #666, 0 0 1px 3px rgba(0, 0, 0, 0.15);
-				-webkit-text-shadow: 1px 1px 1px #000;
-				-moz-text-shadow: 1px 1px 1px #000;
-				-o-text-shadow: 1px 1px 1px #000;
-				text-shadow: 1px 1px 1px #000;
-			}
-			LogInButton:active {
-				color: #C0C0C0;
-				background-color: #232323;
-				background-image: -webkit-linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
-				background-image: -moz-linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
-				background-image: -o-linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
-				background-image: linear-gradient(top, #1e1e1e 0%, #2b2b2b 100%);
-			}
 			p {
 				margin-top: 0.2em; /* Отступ сверху */
 			}
 			a {
 				text-decoration: none;
 			}
-			.Header{
-				position:absolute;
-				top:280;
-				left:289;
-				border: 3px solid #A9A9A9;
-				padding: 0 10px;
-				width:670px;
-				height:90px;
-				background-color: #2E2E2E;
-			}
-			.CreateThread{
-				position:absolute;
-				top:280;
-				left:990;
-				border: 3px solid #A9A9A9;
-				padding: 0 10px;
-				width:618px;
-				height:90px;
-				background-color: #2E2E2E;;
-			}
-			.Head{
-				position:absolute;
-				top:390;
-				left:289;
-				border: 3px solid #A9A9A9;
-				padding: 0 10px;
-				width:1320px;
-				height:45px;
-				background-color: #2E2E2E;
-			}
-			.Title{
-				position:absolute;
-				top:0;
-				left:0;
-				border-right: 3px solid #A9A9A9;
-				padding: 0 10px;
-				width:673px;
-				height:45px;
-				background-color: #2E2E2E;
-			}
-			.Username{
-				position:absolute;
-				top:0;
-				left:700;
-				border-right: 3px solid #A9A9A9;
-				padding: 0 10px;
-				width:380px;
-				height:45px;
-				background-color: #2E2E2E;
-			}
-			.NumberOfComments{
-				position:absolute;
-				top:0;
-				left:1110;
-				width:220px;
-				height:45px;
-				background-color: #2E2E2E;
-			}
-			.LoggedIn {
-				position:fixed;
-				top:350;
-				left:-5;
-				border: 5px solid #696969;
-				padding: 0 10px;
-				width:120px;
-				height:180px;
-			}
-			.LoggedInText {
-				color: #FFFFFF;
-			}
 		</style>
+		<link rel="stylesheet" href="../static/css/style.css">
 	</head>
 	<body bgcolor="	#000000">
 		<a href="/forum" class="shiny-button" style="position:absolute;top:206;left:289;"><strong>Forum</strong></a>
@@ -250,7 +36,7 @@
 				<p><font size="+2" color="#D8D8D8">Number of comments</font></p>
 			</div>
 		</div>
-		<div class="LogIn" id="logIn" style="display: block">
+		<div class="LogIn" id="logIn" style="display: none">
 			<form method="post" action="/auth">
 				<p></p>
 				<input class="LogInText" required type="text" size="12" placeholder="Login" name="login" maxlength="15" autocomplete="on">
@@ -271,7 +57,6 @@
 			<button class="LogInButton" id="logOut">Log Out</button>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js%22%3E"></script>
-		<script src="../static/js/logIn_display_none.js"></script>
 		<script src="../static/js/create_thread_display_none.js"></script>
 		<script src="../static/js/logIn_display_block.js"></script>
 		<script src="../static/js/log_out.js"></script>
