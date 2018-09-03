@@ -90,7 +90,7 @@ exports.getPosts = function() {
 
             } else {
                 db = JSON.parse(db);
-                resolve(db.Posts)
+                resolve(db)
             }
         })
     })

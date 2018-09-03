@@ -47,3 +47,28 @@ exports.createCommentToPost = function(req, res) {
         }
     )
 }
+
+exports.getPosts = function(req, res) {
+    utils.readBody(req, res).then(
+        result => {
+            db.posts.getPosts().then(
+                result => {
+                    console.log(result)
+                    res.writeHead(200, {'Content-Type': 'application/json'})
+                    res.write(JSON.stringify(result))
+                    res.end()
+                },
+                error => {
+                    console.log(error)
+                    res.statusCode = 400
+                    res.end(error)
+                }
+            )
+        },
+        error => {
+            console.log(error)
+            res.statusCode = 400
+            res.end("Error while reading body")
+        }
+    )
+}

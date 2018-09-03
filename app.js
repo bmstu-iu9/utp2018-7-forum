@@ -66,17 +66,7 @@ var server = http.createServer(function (req, res) {
                 send_answer('templates/Fluff.html', res, 'text/html')
                 break
             case '/posts':
-                db.posts.getPosts().then(
-                    result => {
-                        res.writeHead(200, {'Content-Type': 'application/json'})
-                        res.end(result)
-                    },
-                    error => {
-                        res.writeHead(400, {'Content-Type': 'text/html'})
-                        res.end(error)
-                    }
-                )
-
+                db.posts_manager.getPosts(req, res)
                 break
             default:
                 send_answer('templates/404.html', res, 'text/html')
