@@ -25,7 +25,7 @@
 		<div class="CreateThread" id="createThread" style="display: none">
 			<a href="/create_thread"><p align="center"><font size="+3" color="#D8D8D8"><b><big><big><big><big>Create new thread</big></big></big></big></b></font></p></a>
 		</div>
-		<div class="Head">
+		<div class="Head" id="Head">
 			<div class="Title">
 				<p><font size="+3" color="#D8D8D8"><big>Title</big></font></p>
 			</div>
@@ -35,6 +35,9 @@
 			<div class="NumberOfComments">
 				<p><font size="+2" color="#D8D8D8">Number of comments</font></p>
 			</div>
+		</div>
+		<div class="Topics" id="topics">
+			
 		</div>
 		<div class="LogIn" id="logIn" style="display: none">
 			<form method="post" action="/auth">
@@ -60,5 +63,25 @@
 		<script src="../static/js/create_thread_display_none.js"></script>
 		<script src="../static/js/logIn_display_block.js"></script>
 		<script src="../static/js/log_out.js"></script>
+		<script>
+			var Topic = document.createElement('div');
+			Topic.className = "topic";
+			Topic.id = "topic";
+			document.getElementById('topics').appendChild(Topic);
+			var TitleInTopic = document.createElement('div');
+			TitleInTopic.className = "Title";
+			TitleInTopic.innerHTML = "<big>Title</big>";
+			document.getElementById('topic').appendChild(TitleInTopic);
+			document.getElementById('topic').style.fontSize = "xx-large";
+			document.getElementById('topic').style.color = "#D8D8D8";
+			var UsernameInTopic = document.createElement('div');
+			UsernameInTopic.className = "Username";
+			UsernameInTopic.innerHTML = "<big>Username</big>";
+			document.getElementById('topic').appendChild(UsernameInTopic);
+			var NumberOfCommentsInTopic = document.createElement('div');
+			NumberOfCommentsInTopic.className = "NumberOfComments";
+			NumberOfCommentsInTopic.innerHTML = "<big>0</big>";
+			document.getElementById('topic').appendChild(NumberOfCommentsInTopic);
+		</script>
 	</body>
 </html>

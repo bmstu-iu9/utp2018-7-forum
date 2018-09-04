@@ -21,13 +21,14 @@
 		<a href="/about" class="shiny-button" style="position:absolute;top:206;left:1297;"><strong>About</strong></a>
 		<a href="/"><img src="../static/img/artifact_logo.png" style="position:absolute;left:289;"></a>
 		<div class="Thread">
-			<form>
+			<form method="post" action="/posts/create">
 				<div class="TitleInThread">
-					<p><textarea rows="1" cols="24" name="text" required placeholder="Title" maxlength="24" style="font-size: 50px"></textarea></p>
+					<p><textarea rows="1" cols="24" name="title" required placeholder="Title" maxlength="24" style="font-size: 50px"></textarea></p>
 				</div>
 				<div class="TextInThread">
 					<p><textarea rows="13" cols="80" name="text" required placeholder="Text" maxlength="940" style="font-size: 30px"></textarea></p>
 				</div>
+				<input type="hidden" name="author" id="author" value="">
 				<button class="CreateButton"><strong>Create</strong></button>
 			</form>
 		</div>
@@ -54,5 +55,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js%22%3E"></script>
 		<script src="../static/js/logIn_display_block.js"></script>
 		<script src="../static/js/log_out.js"></script>
+		<script src="../static/js/create_thread_login.js"></script>
 	</body>
 </html>

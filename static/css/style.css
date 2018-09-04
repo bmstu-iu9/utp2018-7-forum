@@ -442,3 +442,19 @@ RegistrationButton:active {
 	height:50px;
 	background-color: #8A6B41;
 }
+.Topics{
+	position:absolute;
+	top:455;
+	left:289;
+	width:1320px;
+	height:600px;
+	background-color: white;
+}
+.Topic{
+	position:absolute;
+	border: 3px solid #A9A9A9;
+	padding: 0 10px;
+	width:1320px;
+	height:45px;
+	background-color: #2E2E2E;
+}
