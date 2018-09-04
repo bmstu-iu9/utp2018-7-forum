@@ -447,11 +447,9 @@ RegistrationButton:active {
 	top:455;
 	left:289;
 	width:1320px;
-	height:600px;
-	background-color: white;
+	height:1px;
 }
 .Topic{
-	position:absolute;
 	border: 3px solid #A9A9A9;
 	padding: 0 10px;
 	width:1320px;
