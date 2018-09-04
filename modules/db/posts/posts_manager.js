@@ -8,7 +8,7 @@ exports.createPost = function(req, res) {
             // TODO: Add check that user exists
             db.posts.createPost(result.author, result.title, result.text).then(
                 result => {
-                    send_answer('templates/index.html', res, 'text/html', redirect='/forum')
+                    send_answer('templates/forum.html', res, 'text/html', redirect='/forum')
                 },
                 error => {
                     console.log(error)
