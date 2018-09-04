@@ -65,23 +65,34 @@
 		<script src="../static/js/log_out.js"></script>
 		<script>
 			var Topic = document.createElement('div');
+			var xmlhttp = new XMLHttpRequest();
 			Topic.className = "topic";
 			Topic.id = "topic";
 			document.getElementById('topics').appendChild(Topic);
 			var TitleInTopic = document.createElement('div');
+			TitleInTopic.id = "title_in_topic";
 			TitleInTopic.className = "Title";
-			TitleInTopic.innerHTML = "<big>Title</big>";
 			document.getElementById('topic').appendChild(TitleInTopic);
 			document.getElementById('topic').style.fontSize = "xx-large";
-			document.getElementById('topic').style.color = "#D8D8D8";
 			var UsernameInTopic = document.createElement('div');
 			UsernameInTopic.className = "Username";
+			UsernameInTopic.id = "username_in_topic";
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var myObj = JSON.parse(this.responseText);
+					document.getElementById("title_in_topic").innerHTML = myObj.Posts[0].title;
+					document.getElementById("username_in_topic").innerHTML = myObj.Posts[0].author;
+					document.getElementById("number_of_comments_in_topic").innerHTML = myObj.Posts[0].comments.length;
+				}
+			};
 			UsernameInTopic.innerHTML = "<big>Username</big>";
 			document.getElementById('topic').appendChild(UsernameInTopic);
 			var NumberOfCommentsInTopic = document.createElement('div');
 			NumberOfCommentsInTopic.className = "NumberOfComments";
-			NumberOfCommentsInTopic.innerHTML = "<big>0</big>";
+			NumberOfCommentsInTopic.id = "number_of_comments_in_topic";
 			document.getElementById('topic').appendChild(NumberOfCommentsInTopic);
+			xmlhttp.open("GET", "/posts");
+			xmlhttp.send();
 		</script>
 	</body>
 </html>
