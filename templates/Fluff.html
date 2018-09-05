@@ -14,11 +14,11 @@
 		<link rel="stylesheet" href="../static/css/style.css">
 	</head>
 	<body bgcolor="	#000000">
-		<a href="/forum" class="shiny-button" style="position:absolute;top:206;left:289;"><strong>Forum</strong></a>
-		<a href="http://playartifact.com/" class="shiny-button" style="position:absolute;top:206;left:625;"><strong>Official site</strong></a>
-		<a href="https://store.steampowered.com/app/583950/Artifact/" class="shiny-button" style="position:absolute;top:206;left:961;"><strong>Page on Steam</strong></a>
-		<a href="/about" class="shiny-button" style="position:absolute;top:206;left:1297;"><strong>About</strong></a>
-		<a href="/"><img src="../static/img/artifact_logo.png" style="position:absolute;left:289;"></a>
+	<a href="/forum" class="shiny-button" style="position:absolute;top:21.2%;left:15.2%;"><strong>Forum</strong></a>
+	<a href="http://playartifact.com/" class="shiny-button" style="position:absolute;top:21.2%;left:32.8%;"><strong>Official site</strong></a>
+	<a href="https://store.steampowered.com/app/583950/Artifact/" class="shiny-button" style="position:absolute;top:21.2%;left:50.4%;"><strong>Page on Steam</strong></a>
+	<a href="/about" class="shiny-button" style="position:absolute;top:21.2%;left:68.1%;"><strong>About</strong></a>
+	<a href="/"><img src="../static/img/artifact_logo.png" style="position:absolute;left:15.2%;" width="70.5%" height="20.2%"></a>
 		<div class="Header">
 			<p align="center"><font size="+3" color="#D8D8D8"><b><big><big><big><big>Fluff</big></big></big></big></b></font></p>
 		</div>
@@ -39,26 +39,26 @@
 		<div class="Topics" id="topics">
 
 		</div>
-		<div class="LogIn" id="logIn" style="display: none">
-			<form method="post" action="/auth">
-				<p></p>
-				<input class="LogInText" required type="text" size="12" placeholder="Login" name="login" maxlength="15" autocomplete="on">
-				<p></p>
-				<input class="LogInText" required type="password" size="12" placeholder="Password" name="password" autocomplete="on">
-				<p></p>
-				<input class="LogInButton" type="submit" value="Log In">
-				<p></p>
-			</form>
-			<a href="/registration" class="LogInButton">Sign Up</a>
-		</div>
-		<div class="LoggedIn" id="logedIn" style="display: none">
-			<p style="color:black">не пасхалка</p>
+	<div class="LogIn" id="logIn" style="display: none">
+		<form method="post" action="/auth">
 			<p></p>
-			<p class="LoggedInText" align="center">You logged in as</p>
+			<input class="LogInText" required type="text" size="12" placeholder="login" name="login" maxlength="15" autocomplete="on"  Style ="height:14%; width:100%;">
 			<p></p>
-			<p class="LoggedInText" id="logInText" align="center"></p>
-			<button class="LogInButton" id="logOut">Log Out</button>
-		</div>
+			<input class="LogInText" required type="password" size="12" placeholder="password" name="password" autocomplete="on" Style ="height:14%; width:100%;">
+			<p></p>
+			<input class="LogInButton" type="submit" value="Log In">
+			<p></p>
+		</form>
+		<a href="/registration" class="LogInButton">Sign Up</a>
+	</div>
+	<div class="LoggedIn" id="logedIn" style="display: none">
+		<p style="color:black">не пасхалка</p>
+		<p></p>
+		<p class="LoggedInText" align="center">You logged in as</p>
+		<p></p>
+		<p class="LoggedInText" id="logInText" align="center"></p>
+		<button class="LogInButton" id="logOut">Log Out</button>
+	</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js%22%3E"></script>
 		<script src="../static/js/create_thread_display_none.js"></script>
 		<script src="../static/js/logIn_display_block.js"></script>
