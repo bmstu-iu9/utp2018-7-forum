@@ -68,6 +68,9 @@ var server = http.createServer(function (req, res) {
             case '/posts':
                 db.posts_manager.getPosts(req, res)
                 break
+            case '/thread':
+                send_answer('templates/thread.html', res, 'text/html')
+                break
             default:
                 send_answer('templates/404.html', res, 'text/html')
         }

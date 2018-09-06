@@ -11,7 +11,7 @@ xmlhttp.onreadystatechange = function() {
         TopicArray[0].style.left = '0px';
         TopicArray[0].style.top = hight + 'px';
         var TitleInTopicArray = [];
-        TitleInTopicArray[0] = document.createElement('div');
+        TitleInTopicArray[0] = document.createElement('a');
         TitleInTopicArray[0].className = "Title";
         TopicArray[0].appendChild(TitleInTopicArray[0]);
         TopicArray[0].style.fontSize = "xx-large";
@@ -24,6 +24,7 @@ xmlhttp.onreadystatechange = function() {
         NumberOfCommentsInTopicArray[0].className = "NumberOfComments";
         TopicArray[0].appendChild(NumberOfCommentsInTopicArray[0]);
         TitleInTopicArray[0].innerHTML = myObj.Posts[0].title;
+        TitleInTopicArray[0].setAttribute('href', '/thread');
         UsernameInTopicArray[0].innerHTML = myObj.Posts[0].author;
         NumberOfCommentsInTopicArray[0].innerHTML = myObj.Posts[0].comments.length;
         for (i = 1; i < Object.keys(myObj.Posts).length; i++) {
@@ -34,7 +35,7 @@ xmlhttp.onreadystatechange = function() {
             hight = hight + 50;
             TopicArray[i].style.top = hight + 'px';
             document.getElementById('topics').appendChild(TopicArray[i]);
-            TitleInTopicArray[i] = document.createElement('div');
+            TitleInTopicArray[i] = document.createElement('a');
             TitleInTopicArray[i].className = "Title";
             TopicArray[i].appendChild(TitleInTopicArray[i]);
             TopicArray[i].style.fontSize = "xx-large";
@@ -45,6 +46,7 @@ xmlhttp.onreadystatechange = function() {
             NumberOfCommentsInTopicArray[i].className = "NumberOfComments";
             TopicArray[i].appendChild(NumberOfCommentsInTopicArray[i]);
             TitleInTopicArray[i].innerHTML = myObj.Posts[i].title;
+            TitleInTopicArray[i].setAttribute('href', '/thread');
             UsernameInTopicArray[i].innerHTML = myObj.Posts[i].author;
             NumberOfCommentsInTopicArray[i].innerHTML = myObj.Posts[i].comments.length;
         }
