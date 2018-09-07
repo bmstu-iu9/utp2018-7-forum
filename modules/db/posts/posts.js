@@ -117,9 +117,9 @@ exports.getPost = function(id) {
                 db = JSON.parse(db);
                 var exists = get_post(db, id)
                 if (exists != -1) {
-                    resolve(true)
+                    resolve()
                 } else {
-                    reject(false)
+                    reject()
                 }
             }
         })

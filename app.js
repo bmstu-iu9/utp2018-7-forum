@@ -34,14 +34,8 @@ var server = http.createServer(function (req, res) {
                     break
             }
         }
-        // if (url.pathname.split('/')[2] != undefined){
-        //     db.posts.getPost(url.pathname.split('/')[2]).then(
-        //         result => {
-        //             send_answer('templates/thread.html', res, 'text/html')
-        //         },
-        //         error => {}
-        //     )
-        // }
+
+
 
         switch (url.pathname) {
             case '/':
