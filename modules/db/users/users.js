@@ -19,7 +19,7 @@ exports.connect = function() {
     }
 };
 
-exports.getUser = function(login) {
+exports.getUser = function(login, password) {
     return new Promise(function(resolve, reject) {
         fs.readFile(path, 'utf-8', function(err, db) {
             if (err) {
@@ -30,7 +30,13 @@ exports.getUser = function(login) {
                 current_user = contains(db, login)
 
                 if (current_user) {
-                    resolve(current_user)
+                    console.log(current_user.password)
+                    console.log(password)
+                    if (current_user.password == password){
+                        resolve(current_user)
+                    } else {
+                        reject('Password mismatch')
+                    }
                 } else {
                     reject('No such user')
                 }
@@ -67,6 +73,7 @@ exports.addUser = function(login, password) {
         })
     })
 }
+
 
 function contains(db, login) {
     var user;

@@ -5,7 +5,7 @@ const utils = require('./utils')
 exports.authorize = function(req, res) {
     utils.readBody(req, res).then(
         result => {
-            db.users.getUser(result.login).then(
+            db.users.getUser(result.login, result.password).then(
                 result => {
                     db.sessions.createSession(result.login).then(
                         function(cookies) {
@@ -20,7 +20,11 @@ exports.authorize = function(req, res) {
                 error => {
                     console.log(error)
                     res.statusCode = 400
-                    res.end("Error while getting user")
+                    if (error == "Password mismatch"){
+                        res.end('Password mismatch')
+                    } else {
+                        res.end("Error while getting user")
+                    }
                 }
             )
         },
