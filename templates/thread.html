@@ -4,7 +4,7 @@
     <link rel="shortcut icon" href="../static/img/Small_logo.png" type="image/png">
     <title>Arctifact</title>
     <style>
-        .Text{
+        .TextWindow{
             position:absolute;
             top:10%;
             left:25%;
@@ -12,9 +12,34 @@
             width:70%;
             height:80%;
             background-color: #000000;
+            font-size: 18px;
+        }
+        .TextInWindow{
+            position:absolute;
+            top:4%;
+            left:1%;
+            width:98%;
+            height:92%;
+            font-size: 18px;
+        }
+        .TextInTitle{
+            position:absolute;
+            top:10%;
+            left:0%;
+            width:100%;
+            height:92%;
+            font-size: 50px;
+        }
+        textarea{
+            border-style: none;
+            outline:none;
+            resize: none;
+            background-color: #2E2E2E;
+            color: #D8D8D8;
         }
     </style>
     <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../static/js/thread_page.js"></script>
 </head>
 <body onresize="changeSize()" bgcolor="	#000000">
 <a href="/forum" class="shiny-button" style="position:absolute;top:21.2%;left:15.2%;"><strong>Forum</strong></a>
@@ -25,19 +50,6 @@
 <div class="Thread" id="Thread">
     <div class="ThreadTitle" id="TitleInThread">
         <p align="center" ><font style="font-size: 50px">Kek</font></p>
-    </div>
-    <div class="Message" id="Message">
-        <div class="ProfileOfMessage" id="ProfileOfMessage">
-            <div class="NickName" id="NickName">
-                <p align="center" ><font style="font-size: 23px">Speedy_gonzaless</font></p>
-            </div>
-            <div class="Avatar" id="Avatar">
-                <img src="../static/avatars/default.png" style="position:absolute" width="100%" height="100%">
-            </div>
-        </div>
-        <div class="Text" id="Text">
-            <p><font style="font-size: 18px">Привет, я уже заебался делать это говно</font></p>
-        </div>
     </div>
 </div>
 <div class="LogIn" id="logIn" style="display: none">
@@ -63,6 +75,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js%22%3E"></script>
 <script src="../static/js/logIn_display_block.js"></script>
 <script src="../static/js/log_out.js"></script>
+<script src="../static/js/thread_page.js"></script>
 <script src="../static/js/dynamic_page_size.js"></script>
 </body>
 </html>
