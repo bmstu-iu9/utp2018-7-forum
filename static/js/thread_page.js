@@ -5,6 +5,13 @@ xmlhttp.onreadystatechange = function() {
         var MessagesArray = [];
         var hight = 13;
         var img = document.createElement("img");
+        var post_id = window.location.pathname.split('/')[2];
+        var post_number = 0;
+        for(j=0; j<myObj.Posts.length; j++){
+            if(myObj.Posts[i].id == post_id){
+                post_number=j;
+            }
+        }
         img.src = "../static/avatars/default.png"
         img.style.width = "100%";
         img.style.height = "100%";
@@ -13,7 +20,7 @@ xmlhttp.onreadystatechange = function() {
         ThreadTitle.className = "ThreadTitle";
         TextInTitle.className = "TextInTitle";
         TextInTitle.style.textAlign = "center";
-        TextInTitle.innerHTML = myObj.Posts[0].title;
+        TextInTitle.innerHTML = myObj.Posts[post_number].title;
         ThreadTitle.appendChild(TextInTitle);
         document.getElementById('Thread').appendChild(ThreadTitle);
         MessagesArray[0] = document.createElement('div');
@@ -44,9 +51,9 @@ xmlhttp.onreadystatechange = function() {
         TextArray[0].className = "TextInWindow";
         TextWindowArray[0].appendChild(TextArray[0]);
         MessagesArray[0].appendChild(TextWindowArray[0]);
-        NicknameArray[0].innerHTML = myObj.Posts[0].author;
-        TextArray[0].innerHTML = myObj.Posts[0].text;
-        for(i=0; i<Object.keys(myObj.Posts[0].comments).length; i++){
+        NicknameArray[0].innerHTML = myObj.Posts[post_number].author;
+        TextArray[0].innerHTML = myObj.Posts[post_number].text;
+        for(i=0; i<Object.keys(myObj.Posts[post_number].comments).length; i++){
             MessagesArray[i] = document.createElement('div');
             MessagesArray[i].className = "Message";
             document.getElementById('Thread').appendChild(MessagesArray[i]);
@@ -81,13 +88,12 @@ xmlhttp.onreadystatechange = function() {
         }
         var log = b.split('=')[1];
         document.getElementById('author').value = log;
-        var id = window.location.pathname.split('/')[2];
         var AddComment = document.createElement('div');
         AddComment.className = "AddComment";
         AddComment.style.top = hight + 36 + '%'
         AddComment.innerHTML = "<form method='post' action='/posts/add-comment'>" +
             "<div class='TextCreateComment'> <p><textarea rows='6' cols='83' name='text' required placeholder='Text' maxlength='940' style='font-size: 30px'></textarea></p> </div> " +
-            "<input type='hidden' name='post_id' id='post_id' value=id> " +
+            "<input type='hidden' name='post_id' id='post_id' value=post_id> " +
             "<input type='hidden' name='author' id='author' value=log> " +
             "<button class='CommentButton'><strong>Comment</strong></button> </form>"
         document.getElementById('Thread').appendChild(AddComment);
