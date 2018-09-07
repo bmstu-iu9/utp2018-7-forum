@@ -5,10 +5,12 @@ const send_answer = require('../../send')
 exports.createPost = function(req, res) {
     utils.readBody(req, res).then(
         result => {
+            var topic = result.topic
             // TODO: Add check that user exists
             db.posts.createPost(result.author, result.title, result.text, result.topic).then(
                 result => {
-                    send_answer('templates/forum.html', res, 'text/html', redirect='/forum')
+                    res.writeHead(301, {"Location" : '/' + topic});
+                    res.end();
                 },
                 error => {
                     console.log(error)
@@ -72,3 +74,5 @@ exports.getPosts = function(req, res) {
         }
     )
 }
+
+
