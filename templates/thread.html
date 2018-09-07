@@ -1,16 +1,45 @@
-<html>
+<html id="html">
 <head>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="../static/img/Small_logo.png" type="image/png">
     <title>Arctifact</title>
+    <style>
+        .Text{
+            position:absolute;
+            top:10%;
+            left:25%;
+            border: 3px solid #696969;
+            width:70%;
+            height:80%;
+            background-color: #000000;
+        }
+    </style>
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
-<body bgcolor="	#000000">
+<body onresize="changeSize()" bgcolor="	#000000">
 <a href="/forum" class="shiny-button" style="position:absolute;top:21.2%;left:15.2%;"><strong>Forum</strong></a>
 <a href="http://playartifact.com/" class="shiny-button" style="position:absolute;top:21.2%;left:32.8%;"><strong>Official site</strong></a>
 <a href="https://store.steampowered.com/app/583950/Artifact/" class="shiny-button" style="position:absolute;top:21.2%;left:50.4%;"><strong>Page on Steam</strong></a>
 <a href="/about" class="shiny-button" style="position:absolute;top:21.2%;left:68.1%;"><strong>About</strong></a>
 <a href="/"><img src="../static/img/artifact_logo.png" style="position:absolute;left:15.2%;" width="70.5%" height="20.2%"></a>
+<div class="Thread" id="Thread">
+    <div class="ThreadTitle" id="TitleInThread">
+        <p align="center" ><font style="font-size: 50px">Kek</font></p>
+    </div>
+    <div class="Message" id="Message">
+        <div class="ProfileOfMessage" id="ProfileOfMessage">
+            <div class="NickName" id="NickName">
+                <p align="center" ><font style="font-size: 23px">Speedy_gonzaless</font></p>
+            </div>
+            <div class="Avatar" id="Avatar">
+                <img src="../static/avatars/default.png" style="position:absolute" width="100%" height="100%">
+            </div>
+        </div>
+        <div class="Text" id="Text">
+            <p><font style="font-size: 18px">Привет, я уже заебался делать это говно</font></p>
+        </div>
+    </div>
+</div>
 <div class="LogIn" id="logIn" style="display: none">
     <form method="post" action="/auth">
         <p></p>
@@ -34,5 +63,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js%22%3E"></script>
 <script src="../static/js/logIn_display_block.js"></script>
 <script src="../static/js/log_out.js"></script>
+<script src="../static/js/dynamic_page_size.js"></script>
 </body>
 </html>
