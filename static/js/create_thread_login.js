@@ -5,3 +5,7 @@ for(var i=0; i<a.length; i++){
 }
 var log = b.split('=')[1];
 document.getElementById('author').value = log;
+
+// Get url and parse topic
+var topic = window.location.pathname.split('/')[1];
+document.getElementById('topic').value = topic;

@@ -20,7 +20,7 @@ exports.connect = function() {
     }
 }
 
-exports.createPost = function(author, title, text) {
+exports.createPost = function(author, title, text, topic) {
     return new Promise(function(resolve, reject) {
         fs.readFile(path, 'utf-8', function(err, db) {
             if (err) {
@@ -30,7 +30,7 @@ exports.createPost = function(author, title, text) {
             } else {
                 db = JSON.parse(db);
 
-                let post = new Post(Math.random().toString(36).slice(2), author, title, text, new Date().getTime())
+                let post = new Post(Math.random().toString(36).slice(2), author, title, text, new Date().getTime(), topic)
                 db.Posts.push(post)
 
                 json_db = JSON.stringify(db, '', 4)

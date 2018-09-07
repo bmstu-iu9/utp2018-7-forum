@@ -6,7 +6,7 @@ exports.createPost = function(req, res) {
     utils.readBody(req, res).then(
         result => {
             // TODO: Add check that user exists
-            db.posts.createPost(result.author, result.title, result.text).then(
+            db.posts.createPost(result.author, result.title, result.text, result.topic).then(
                 result => {
                     send_answer('templates/forum.html', res, 'text/html', redirect='/forum')
                 },
