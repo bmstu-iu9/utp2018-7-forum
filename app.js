@@ -34,6 +34,9 @@ var server = http.createServer(function (req, res) {
                     break
             }
         }
+
+
+
         switch (url.pathname) {
             case '/':
                 send_answer('templates/index.html', res, 'text/html')

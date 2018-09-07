@@ -30,7 +30,7 @@ xmlhttp.onreadystatechange = function() {
                 NumberOfCommentsInTopicArray[i].className = "NumberOfComments";
                 TopicArray[i].appendChild(NumberOfCommentsInTopicArray[i]);
                 TitleInTopicArray[i].innerHTML = myObj.Posts[i].title;
-                path = '/' + myObj.Posts[i].topic + '/' + myObj.Posts[0].id;
+                path = '/' + myObj.Posts[i].topic + '/' + myObj.Posts[i].id;
                 TitleInTopicArray[i].setAttribute('href', path);
                 UsernameInTopicArray[i].innerHTML = myObj.Posts[i].author;
                 NumberOfCommentsInTopicArray[i].innerHTML = myObj.Posts[i].comments.length;

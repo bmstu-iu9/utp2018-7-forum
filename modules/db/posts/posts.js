@@ -98,10 +98,30 @@ exports.getPosts = function() {
 
 function get_post(db, id) {
     for (var i = 0; i < db.Posts.length; i++) {
-        console.log(db.Posts[i].id, id)
         if (db.Posts[i].id == id) {
             return i
         }
     }
     return -1
+}
+
+
+exports.getPost = function(id) {
+    return new Promise(function(resolve, reject) {
+        fs.readFile(path, 'utf-8', function(err, db) {
+            if (err) {
+                console.log(err)
+                reject(err)
+
+            } else {
+                db = JSON.parse(db);
+                var exists = get_post(db, id)
+                if (exists != -1) {
+                    resolve()
+                } else {
+                    reject()
+                }
+            }
+        })
+    })
 }
