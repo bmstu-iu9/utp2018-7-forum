@@ -3,18 +3,19 @@ xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         var myObj = JSON.parse(this.responseText);
         var MessagesArray = [];
-        var hight = 13;
-        var img = document.createElement("img");
-        var post_id = window.location.pathname.split('/')[2];
+        var hight = 80;
+        var post_code = window.location.pathname.split('/')[2];
         var post_number = 0;
         for(j=0; j<myObj.Posts.length; j++){
-            if(myObj.Posts[i].id == post_id){
+            if(myObj.Posts[j].id == post_code){
                 post_number=j;
             }
         }
-        img.src = "../static/avatars/default.png"
-        img.style.width = "100%";
-        img.style.height = "100%";
+        var img = [];
+        img[0] = document.createElement("img");
+        img[0].src = "../static/avatars/default.png"
+        img[0].style.width = "100%";
+        img[0].style.height = "100%";
         var ThreadTitle = document.createElement('div');
         var TextInTitle = document.createElement('div');
         ThreadTitle.className = "ThreadTitle";
@@ -28,7 +29,8 @@ xmlhttp.onreadystatechange = function() {
         document.getElementById('Thread').appendChild(MessagesArray[0]);
         MessagesArray[0].style.position = "absolute";
         MessagesArray[0].style.left = '0%';
-        MessagesArray[0].style.top = hight + '%';
+        MessagesArray[0].style.top = hight + 'px';
+        hight = hight + 320;
         var ProfileArray = [];
         ProfileArray[0] = document.createElement('div');
         ProfileArray[0].className = "ProfileOfMessage";
@@ -41,7 +43,7 @@ xmlhttp.onreadystatechange = function() {
         var AvatarArray =[];
         AvatarArray[0] = document.createElement('div');
         AvatarArray[0].className = "Avatar";
-        AvatarArray[0].appendChild(img);
+        AvatarArray[0].appendChild(img[0]);
         ProfileArray[0].appendChild(AvatarArray[0]);
         var TextWindowArray = [];
         TextWindowArray[0] = document.createElement('div');
@@ -53,14 +55,14 @@ xmlhttp.onreadystatechange = function() {
         MessagesArray[0].appendChild(TextWindowArray[0]);
         NicknameArray[0].innerHTML = myObj.Posts[post_number].author;
         TextArray[0].innerHTML = myObj.Posts[post_number].text;
-        for(i=0; i<Object.keys(myObj.Posts[post_number].comments).length; i++){
+        for(i=1; i<=Object.keys(myObj.Posts[post_number].comments).length; i++){
             MessagesArray[i] = document.createElement('div');
             MessagesArray[i].className = "Message";
             document.getElementById('Thread').appendChild(MessagesArray[i]);
             MessagesArray[i].style.position = "absolute";
-            MessagesArray[0].style.left = '0%';
-            hight = hight + 40;
-            MessagesArray[i].style.top = hight + '%';
+            MessagesArray[i].style.left = '0%';
+            MessagesArray[i].style.top = hight + 'px';
+            hight = hight + 300;
             ProfileArray[i] = document.createElement('div');
             ProfileArray[i].className = "ProfileOfMessage";
             MessagesArray[i].appendChild(ProfileArray[i]);
@@ -70,7 +72,11 @@ xmlhttp.onreadystatechange = function() {
             ProfileArray[i].appendChild(NicknameArray[i]);
             AvatarArray[i] = document.createElement('div');
             AvatarArray[i].className = "Avatar";
-            AvatarArray[i].appendChild(img);
+            img[i] = document.createElement("img");
+            img[i].src = "../static/avatars/default.png"
+            img[i].style.width = "100%";
+            img[i].style.height = "100%";
+            AvatarArray[i].appendChild(img[i]);
             ProfileArray[i].appendChild(AvatarArray[i]);
             TextWindowArray[i] = document.createElement('div');
             TextWindowArray[i].className = "TextWindow";
@@ -78,23 +84,24 @@ xmlhttp.onreadystatechange = function() {
             TextArray[i].className = "TextInWindow";
             TextWindowArray[i].appendChild(TextArray[i]);
             MessagesArray[i].appendChild(TextWindowArray[i]);
-            NicknameArray[i].innerHTML = myObj.Posts[i].author;
-            TextArray[i].innerHTML = myObj.Posts[i].text;
+            NicknameArray[i].innerHTML = myObj.Posts[post_number].comments[i-1].author;
+            TextArray[i].innerHTML = myObj.Posts[post_number].comments[i-1].text;
         }
         var a = document.cookie.split(';');
-        for(var i=0; i<a.length; i++){
+        for(i=0; i<a.length; i++){
             if(a[i].indexOf("login")>-1)
                 b=a[i];
         }
         var log = b.split('=')[1];
-        document.getElementById('author').value = log;
         var AddComment = document.createElement('div');
         AddComment.className = "AddComment";
-        AddComment.style.top = hight + 36 + '%'
+        AddComment.style.top = hight + 20 + 'px'
         AddComment.innerHTML = "<form method='post' action='/posts/add-comment'>" +
-            "<div class='TextCreateComment'> <p><textarea rows='6' cols='83' name='text' required placeholder='Text' maxlength='940' style='font-size: 30px'></textarea></p> </div> " +
-            "<input type='hidden' name='post_id' id='post_id' value=post_id> " +
-            "<input type='hidden' name='author' id='author' value=log> " +
+            "<div class='TextCreateComment'> <p><textarea rows='6' cols='81' name='text' required placeholder='Text' maxlength='940' style='font-size: 30px'></textarea></p> </div> " +
+            "<input type='hidden' name='post_id' id='post_id' value=" + post_code +
+            "> " +
+            "<input type='hidden' name='author' id='author' value=" + log +
+            "> " +
             "<button class='CommentButton'><strong>Comment</strong></button> </form>"
         document.getElementById('Thread').appendChild(AddComment);
     }
