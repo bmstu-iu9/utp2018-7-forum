@@ -24,7 +24,7 @@ xmlhttp.onreadystatechange = function() {
         NumberOfCommentsInTopicArray[0].className = "NumberOfComments";
         TopicArray[0].appendChild(NumberOfCommentsInTopicArray[0]);
         TitleInTopicArray[0].innerHTML = myObj.Posts[0].title;
-        var path = '/news/'+ myObj.Posts[0].title;
+        var path = '/news/'+ myObj.Posts[0].id;
         TitleInTopicArray[0].setAttribute('href', path);
         UsernameInTopicArray[0].innerHTML = myObj.Posts[0].author;
         NumberOfCommentsInTopicArray[0].innerHTML = myObj.Posts[0].comments.length;
@@ -47,7 +47,7 @@ xmlhttp.onreadystatechange = function() {
             NumberOfCommentsInTopicArray[i].className = "NumberOfComments";
             TopicArray[i].appendChild(NumberOfCommentsInTopicArray[i]);
             TitleInTopicArray[i].innerHTML = myObj.Posts[i].title;
-            path = '/news/'+ myObj.Posts[i].title;
+            path = '/news/'+ myObj.Posts[i].id;
             TitleInTopicArray[i].setAttribute('href', path);
             UsernameInTopicArray[i].innerHTML = myObj.Posts[i].author;
             NumberOfCommentsInTopicArray[i].innerHTML = myObj.Posts[i].comments.length;
