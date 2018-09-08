@@ -1,4 +1,4 @@
-# utp2018-7-forum
+# Artifact forum
 Форум на JavaScript (Node.js)
 
 # Состав группы
