@@ -1,4 +1,4 @@
-# utp2018-7-forum
+# Artifact forum
 Форум на JavaScript (Node.js)
 
 # Состав группы
@@ -9,5 +9,11 @@
 - [Роман Браславский](https://github.com/hdstrgsx)
 - [Наталья Чурсина](https://github.com/kwk18)
 
-Чтобы запустить скачиваем проект и пишем в консоль node app.js 
-После этого открываем браузер и пишем localhost:8000
+# Запуск проекта
+``` javascript
+установить node.js
+скачать проект
+в папке проекта открыть консоль
+node app.js
+в браузере открыть localhost:8000
+```

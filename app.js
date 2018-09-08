@@ -8,6 +8,10 @@ const utils = require('./modules/utils')
 
 db.users.connect()
 db.sessions.connect()
+db.posts.connect()
+
+var topic;
+
 
 var server = http.createServer(function (req, res) {
     const url = urlapi.parse(req.url)
@@ -16,7 +20,7 @@ var server = http.createServer(function (req, res) {
         if (url.pathname.startsWith('/static')) {
             const filepath = url.pathname.substring(1)
             const filetype = url.pathname.substring(url.pathname.lastIndexOf('.'))
-            console.log(filepath, filetype)
+
             switch (filetype) {
                 case '.png':
                     send_answer(filepath, res, 'image/png')
@@ -29,6 +33,9 @@ var server = http.createServer(function (req, res) {
                 default:
                     break
             }
+        }
+        if((url.pathname.split('/')[2] != undefined) && (url.pathname.split('/')[2] !='create_thread')){
+            send_answer('templates/thread.html', res, 'text/html')
         }
         switch (url.pathname) {
             case '/':
@@ -49,7 +56,17 @@ var server = http.createServer(function (req, res) {
             case '/logout':
                 auth.logout(req, res)
                 break
-            case '/create_thread':
+            case '/news/create_thread':
+                send_answer('templates/create_thread.html', res, 'text/html')
+                topic = 'news';
+                break
+            case '/fluff/create_thread':
+                send_answer('templates/create_thread.html', res, 'text/html')
+                break
+            case '/known_bugs/create_thread':
+                send_answer('templates/create_thread.html', res, 'text/html')
+                break
+            case '/general_discussion/create_thread':
                 send_answer('templates/create_thread.html', res, 'text/html')
                 break
             case '/news':
@@ -64,6 +81,12 @@ var server = http.createServer(function (req, res) {
             case '/fluff':
                 send_answer('templates/Fluff.html', res, 'text/html')
                 break
+            case '/posts':
+                db.posts_manager.getPosts(req, res)
+                break
+            case '/thread':
+                send_answer('templates/thread.html', res, 'text/html')
+                break
             default:
                 send_answer('templates/404.html', res, 'text/html')
         }
@@ -75,6 +98,12 @@ var server = http.createServer(function (req, res) {
             case '/register':
                 reg.registration(req, res)
                 break
+            case '/posts/add-comment':
+                db.posts_manager.createCommentToPost(req, res)
+                break
+            case '/posts/create':
+                db.posts_manager.createPost(req, res);
+                break;
             default:
                 send_answer('templates/404.html', res, 'text/html')
         }
@@ -83,3 +112,5 @@ var server = http.createServer(function (req, res) {
 
 
 server.listen(8000);
+
+console.log('Server started on port 8000')
