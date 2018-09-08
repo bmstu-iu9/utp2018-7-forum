@@ -9,5 +9,7 @@
 - [Роман Браславский](https://github.com/hdstrgsx)
 - [Наталья Чурсина](https://github.com/kwk18)
 
-Чтобы запустить скачиваем проект и пишем в консоль node app.js 
-После этого открываем браузер и пишем localhost:8000
+# Запуск проекта
+``` javascript
+node app.js
+```
