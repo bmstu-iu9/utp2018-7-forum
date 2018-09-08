@@ -57,7 +57,6 @@ exports.createCommentToPost = function(post_id, author, text) {
 
             } else {
                 db = JSON.parse(db);
-
                 let post_index = get_post(db, post_id)
                 if (post_index == -1) {
                     reject('No post with id')
