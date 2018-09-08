@@ -34,16 +34,7 @@ var server = http.createServer(function (req, res) {
                     break
             }
         }
-        if((url.pathname.split('/')[1] == 'news') && (url.pathname.split('/')[2] != undefined) && (url.pathname.split('/')[2] !='create_thread')){
-            send_answer('templates/thread.html', res, 'text/html')
-        }
-        if((url.pathname.split('/')[1] == 'known_bugs') && (url.pathname.split('/')[2] != undefined) && (url.pathname.split('/')[2] !='create_thread')){
-            send_answer('templates/thread.html', res, 'text/html')
-        }
-        if((url.pathname.split('/')[1] == 'general_discussion') && (url.pathname.split('/')[2] != undefined) && (url.pathname.split('/')[2] !='create_thread')){
-            send_answer('templates/thread.html', res, 'text/html')
-        }
-        if((url.pathname.split('/')[1] == 'fluff') && (url.pathname.split('/')[2] != undefined) && (url.pathname.split('/')[2] !='create_thread')){
+        if((url.pathname.split('/')[2] != undefined) && (url.pathname.split('/')[2] !='create_thread')){
             send_answer('templates/thread.html', res, 'text/html')
         }
         switch (url.pathname) {

@@ -9,7 +9,7 @@ exports.createPost = function(req, res) {
             // TODO: Add check that user exists
             db.posts.createPost(result.author, result.title, result.text, result.topic).then(
                 result => {
-                    res.writeHead(301, {"Location" : '/' + topic});
+                    res.writeHead(301, {"Location" : '/' + topic + '/' + result});
                     res.end();
                 },
                 error => {
@@ -30,10 +30,14 @@ exports.createPost = function(req, res) {
 exports.createCommentToPost = function(req, res) {
     utils.readBody(req, res).then(
         result => {
+            console.log(result.post_id, result.topic)
+            var path = '/' + result.topic + '/' + result.post_id
+            //
             // TODO: Add check that user exists and post
             db.posts.createCommentToPost(result.post_id, result.author, result.text).then(
                 result => {
-                    send_answer('templates/forum.html', res, 'text/html', redirect = '/forum')
+                    res.writeHead(301, {"Location" : path});
+                    res.end();
                 },
                 error => {
                     console.log(error)

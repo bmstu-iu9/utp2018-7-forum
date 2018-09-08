@@ -92,6 +92,7 @@ xmlhttp.onreadystatechange = function() {
             if(a[i].indexOf("login")>-1)
                 b=a[i];
         }
+        var topic = window.location.pathname.split('/')[1]
         var log = b.split('=')[1];
         var AddComment = document.createElement('div');
         AddComment.className = "AddComment";
@@ -102,6 +103,7 @@ xmlhttp.onreadystatechange = function() {
             "> " +
             "<input type='hidden' name='author' id='author' value=" + log +
             "> " +
+            "<input type ='hidden' name = 'topic' id = 'topic' value=" + topic + ">" +
             "<button class='CommentButton'><strong>Comment</strong></button> </form>"
         document.getElementById('Thread').appendChild(AddComment);
     }
