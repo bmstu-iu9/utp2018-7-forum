@@ -33,7 +33,7 @@ exports.createCommentToPost = function(req, res) {
             // TODO: Add check that user exists and post
             db.posts.createCommentToPost(result.post_id, result.author, result.text).then(
                 result => {
-                    send_answer('templates/index.html', res, 'text/html', redirect = '/forum')
+                    send_answer('templates/forum.html', res, 'text/html', redirect = '/forum')
                 },
                 error => {
                     console.log(error)
