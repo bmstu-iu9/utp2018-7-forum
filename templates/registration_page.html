@@ -34,11 +34,11 @@
 			<form method="post" action="/register">
 				<p></p>
 
-				<input class="RegistrationText" required type="text" size="20" placeholder="Login" name="login" maxlength="15" autocomplete="on" Style ="margin-left: 43.5%; height:12%">
+				<input class="RegistrationText" required pattern="^[a-zA-Z0-9\_]+$" type="text" size="20" placeholder="Login(A-Z,a-z,0-9,_)" name="login" maxlength="15" autocomplete="on" Style ="margin-left: 43.5%; height:12%">
 				<p></p>
-				<input class="RegistrationText" required type="password" size="20" placeholder="Password" name="password" autocomplete="on" Style ="margin-left: 43.5%; height:12%">
+				<input class="RegistrationText" required pattern="^[a-zA-Z0-9\_]+$" type="password" size="20" placeholder="Password(A-Z,a-z,0-9,_)" name="password" autocomplete="on" Style ="margin-left: 43.5%; height:12%">
 				<p></p>
-				<input class="RegistrationText" required type="password" size="20" placeholder="confirm your password" name="passwordconfirm" autocomplete="on" Style ="margin-left: 43.5%; height:12%">
+				<input class="RegistrationText" required pattern="^[a-zA-Z0-9\_]+$" type="password" size="20" placeholder="confirm your password" name="passwordconfirm" autocomplete="on" Style ="margin-left: 43.5%; height:12%">
 				<p></p>
 				<button class="RegistrationButton">Sign Up</button>
 			</form>
