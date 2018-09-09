@@ -52,9 +52,9 @@
 <div class="LogIn" id="logIn" style="display: none">
     <form method="post" action="/auth">
         <p></p>
-        <input class="LogInText" required type="text" size="12" placeholder="login" name="login" maxlength="15" autocomplete="on"  Style ="height:14%; width:100%;">
+        <input class="LogInText" required pattern="^[a-zA-Z0-9_]+$" required type="text" size="12" placeholder="Login(a-z,A-Z,0-9,_)" name="login" maxlength="15" autocomplete="on"  Style ="height:14%; width:100%;">
         <p></p>
-        <input class="LogInText" required type="password" size="12" placeholder="password" name="password" autocomplete="on" Style ="height:14%; width:100%;">
+        <input class="LogInText" required pattern="^[a-zA-Z0-9_]+$" required type="password" size="12" placeholder="password" name="password" autocomplete="on" Style ="height:14%; width:100%;">
         <p></p>
         <input class="LogInButton" type="submit" value="Log In">
         <p></p>
