@@ -33,9 +33,9 @@
 		<div class="LogIn" id="logIn" style="display: none">
 			<form method="post" action="/auth">
 				<p></p>
-				<input class="LogInText" required type="text" size="12" placeholder="Login" name="login" maxlength="15" autocomplete="on">
+				<input class="LogInText" required pattern="^[a-zA-Z0-9_]+$" required type="text" size="12" placeholder="Login(a-z,A-Z,0-9,_)" name="login" maxlength="15" autocomplete="on">
 				<p></p>
-				<input class="LogInText" required type="password" size="12" placeholder="Password" name="password" autocomplete="on">
+				<input class="LogInText" required pattern="^[a-zA-Z0-9_]+$" required type="password" size="12" placeholder="Password" name="password" autocomplete="on">
 				<p></p>
 				<input class="LogInButton" type="submit" value="Log In">
 				<p></p>
